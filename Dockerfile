@@ -1,8 +1,8 @@
 FROM aiogram/telegram-bot-api:latest
 
-RUN apt-get update && apt-get install -y python3 && rm -rf /var/lib/apt/lists/*
+# Alpine использует apk вместо apt-get
+RUN apk add --no-cache python3
 
-# Простой HTTP сервер на python который отдаёт файлы из /var/lib/telegram-bot-api
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
 
