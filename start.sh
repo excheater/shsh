@@ -1,8 +1,9 @@
-#!/bin/bash
+#!/bin/sh
 
-# Запускаем файл-сервер на порту 8082 в фоне
-# Он отдаёт всё из /var/lib/telegram-bot-api
+# Запускаем файл-сервер на порту 8082
 python3 -m http.server 8082 --directory /var/lib/telegram-bot-api &
+
+echo "File server started on port 8082"
 
 # Запускаем локальный Bot API сервер
 exec telegram-bot-api \
